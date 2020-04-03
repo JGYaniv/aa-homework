@@ -274,8 +274,8 @@ end
 # p merge_sort([1, 2, 3])
 # p merge_sort([3,2,1])
 # p merge_sort([400,2,3,12,908,90,1,2,7,48,127,389])
-
-def subsets(array) #subsets([1, 2]) # => [[], [1], [2], [1, 2]]
+#subsets([1, 2]) # => [[], [1], [2], [1, 2]]
+def subsets(array) 
     return [[]] if array.empty?
 
     last_el = array.pop
