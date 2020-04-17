@@ -33,27 +33,16 @@ class User < ApplicationRecord
   has_many :post_feedback, :through => :posts, :source => :comments
 
   def n_plus_one_post_comment_counts
-    posts = self.posts
-    # SELECT *
-    #   FROM posts
-    #  WHERE posts.author_id = ?
-    #
-    # where `?` gets replaced with `user.id`
+    
+    posts_with_counts = self
+      .posts
+      .select("posts.*, COUNT(comments.id) AS comments_count")
+      .left_outer_joins(:comments)
+      .group("post_id")
 
-    post_comment_counts = {}
-    posts.each do |post|
-      # This query gets performed once for each post. Each db query
-      # has overhead, so this is very wasteful if there are a lot of
-      # `Post`s for the `User`.
-      post_comment_counts[post] = post.comments.length
-      # SELECT *
-      #   FROM comments
-      #  WHERE comments.post_id = ?
-      #
-      # where `?` gets replaced with `post.id`
+    posts_with_counts.map do |post|
+      [post.title, post.comments_count]
     end
-
-    post_comment_counts
   end
 
   def includes_post_comment_counts
