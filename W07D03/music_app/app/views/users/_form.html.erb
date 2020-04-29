@@ -1,0 +1,10 @@
+<form name="registration_form" action="<%= users_url %>" method="post">
+    <%= auth_token %>
+    <label for="registration_form" name="email">Email: </label>
+    <input type="text" name="user[email]" value="">
+
+    <label for="registration_form" name="password">Password: </label>
+    <input type="text" name="user[password]" value="">
+
+    <input type="submit" value="submit">
+</form>

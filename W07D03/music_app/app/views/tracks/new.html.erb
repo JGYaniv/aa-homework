@@ -1,0 +1,4 @@
+<% album = Album.find(@album_id) %>
+<h2 id="page-title">New track for '<%= album.title %>' by <%= album.band.name%>: <h2>
+
+<%= render 'form', track: @track, album_id: @album_id %>

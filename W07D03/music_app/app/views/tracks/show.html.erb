@@ -1,0 +1,20 @@
+<h2 id="page-title"><%= @track.title %></h2>
+<ul id="track-details">
+    <% album = @track.album %>
+    <% band = album.band %>
+    <li>Band: <a href="<%= band_url(band) %>" class="band-link"><%= band.name %></a></li>
+    <li>Album: <a href="<%= album_url(album) %>" class="album-link"><%= album.title %></a></li>
+    <li>Ord: <%= @track.ord %></li>
+    <li>Bonus: <%= @track.bonus %></li>
+    <li>Lyrics: <%= @track.lyrics %></li>
+</ul>
+
+<form action="<%= track_url(@track) %>" method="post">
+    <%= auth_token %>
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="delete">
+</form>
+<form action="<%= edit_track_url(@track) %>" method="get">
+    <%= auth_token %>
+    <input type="submit" value="edit">
+</form>

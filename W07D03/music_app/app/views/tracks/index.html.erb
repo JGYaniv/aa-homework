@@ -1,0 +1,8 @@
+<h2 id="page-title">All tracks: </h2>
+<ul id="track-list">
+<% @tracks.each do |track| %>
+    <li class="track-list-item">
+        <a href="<%= track_url(track) %>"><%= track.title %></a>, by <a href="<%= album_url(track.album) %>"><%= track.album.title %></a>
+    </li>
+<% end %>
+</ul>

@@ -1,0 +1,19 @@
+<% action = (!album.id ? albums_url : album_url(album)) %>
+
+<form action="<%= action %>" method="post" name="album_form">
+    <% if album.id %>
+        <input type="hidden" name="_method" value="patch">
+    <% end %>
+    <%= auth_token %>
+    <input type="hidden" name="album[band_id]" value="<%= band_id %>">
+    <label for="album_form" name="album_title">Title: </label>
+    <input type="text" name="album[title]" value="<%= album.title if album %>">
+
+    <label for="album_form" name="album_year">Year: </label>
+    <input type="text" name="album[year]" value="<%= album.year if album %>">
+
+    <label for="album_form" name="album_year">Live: </label>
+    <input type="radio" name="album[live]" value="true" <%= "checked" if album.live %>>Y
+    <input type="radio" name="album[live]" value="false" <%= "checked" if !album.live %>>N
+    <input type="submit" value="submit">
+</form>

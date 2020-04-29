@@ -1,0 +1,25 @@
+# == Schema Information
+#
+# Table name: tracks
+#
+#  id         :bigint           not null, primary key
+#  title      :string           not null
+#  ord        :integer          not null
+#  lyrics     :text
+#  album_id   :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  bonus      :boolean          default(FALSE)
+#
+
+one:
+  title: MyString
+  ord: 1
+  lyrics: MyText
+  album_id: 1
+
+two:
+  title: MyString
+  ord: 1
+  lyrics: MyText
+  album_id: 1

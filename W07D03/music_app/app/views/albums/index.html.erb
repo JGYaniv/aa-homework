@@ -1,0 +1,13 @@
+<h2 id="page-title">All albums: </h2>
+<ul id="album-list">
+<% @albums.each do |album| %>
+    <li class="album-list-item">
+        <a href="<%= album_url(album) %>"><%= album.title %></a>, by <a href="<%= band_url(album.band) %>"><%= album.band.name %></a>
+    </li>
+<% end %>
+</ul>
+
+<form action="<%= new_band_url %>" method="get">
+    <%= auth_token %>
+    <input type="submit" value="new band">
+</form>
