@@ -91,6 +91,15 @@ function isSubstring(searchString, subString) {
 
 // Define a function fizzBuzz(array) that takes an array and returns a new array of every number in the array that is divisible by either 3 or 5, but not both.
 
+function fizzBuzz(array) {
+    fizzes = [];
+    array.forEach (num) {
+        if ()
+    }
+}
+
+function fizzBuzzable
+
 //     isPrime
 // Define a function isPrime(number) that returns true if number is prime.Otherwise, false.Assume number is a positive integer.
 
