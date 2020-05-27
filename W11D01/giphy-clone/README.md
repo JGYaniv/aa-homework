@@ -1,0 +1,5 @@
+{
+  giphys: [
+    //giphy objects  
+  ]
+}
